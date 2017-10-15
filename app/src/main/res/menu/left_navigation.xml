@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:icon="@drawable/ic_adventure_travel"
-        android:title="Dummy" />
-    <item
-        android:icon="@drawable/ic_adventure_travel"
-        android:title="Dummy 2" />
+    <group
+        android:id="@+id/group_1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navigation_item_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/title_home" />
+        <item
+            android:id="@+id/navigation_item_attractions"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_attractions" />
+        <item
+            android:id="@+id/navigation_item_tour_packages"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_tour_packages" />
+        <item
+            android:id="@+id/navigation_item_tour_operator"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_tour_operators" />
+        <item
+            android:id="@+id/navigation_item_my_booking"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_my_booking" />
+        <item
+            android:id="@+id/navigation_item_my_account"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_my_account" />
+    </group>
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/navigation_item_settings"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_settings" />
+        <item
+            android:id="@+id/navigation_item_about"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_about" />
+    </group>
 </menu>
