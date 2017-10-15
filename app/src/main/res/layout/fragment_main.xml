@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.travazar.tour.packages.ui.views.imageslider.ImageSlider
+            android:id="@+id/slider_features"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_slider_height" />
+
+        <com.travazar.tour.packages.ui.views.list.category.CategoryListViewLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.travazar.tour.packages.ui.views.list.toppackage.TopTourPackageLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.travazar.tour.packages.ui.views.list.topattraction.TopAttractionLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_huge" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
