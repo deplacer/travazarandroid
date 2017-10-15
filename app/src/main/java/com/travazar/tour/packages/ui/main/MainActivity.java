@@ -8,7 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
 
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.DataManager;
@@ -16,7 +16,7 @@ import com.travazar.tour.packages.ui.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
+import xyz.sahildave.widget.SearchViewLayout;
 
 public class MainActivity extends BaseActivity implements MainMvpView, NavigationView.OnNavigationItemSelectedListener {
 
@@ -24,6 +24,10 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     DrawerLayout mDrawerLayout;
     @BindView(R.id.navigation_left)
     NavigationView mNavigationView;
+    @BindView(R.id.search_view_container)
+    SearchViewLayout mSearchViewLayout;
+    @BindView(R.id.navigation_bottom)
+    BottomNavigationView mBottomNavigationView;
 
     private MainPresenter mMainPresenter;
 
@@ -47,8 +51,18 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         }
 
     };
+    private SearchViewLayout.OnToggleAnimationListener mSearchViewToggleListener = new SearchViewLayout.OnToggleAnimationListener() {
+        @Override
+        public void onStart(boolean expanding) {
+            mBottomNavigationView.setVisibility(expanding ? View.GONE : View.VISIBLE);
+        }
 
-    @OnClick(R.id.image_burger)
+        @Override
+        public void onFinish(boolean expanded) {
+
+        }
+    };
+
     void onBurgerClick() {
         if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
             mDrawerLayout.closeDrawer(Gravity.START);
@@ -65,16 +79,40 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         DataManager dataManager = getApp().getDataManager();
         mMainPresenter = new MainPresenter(dataManager);
         mMainPresenter.onAttach(this);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation_bottom);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         openMainPage();
         setupNavigationDrawer();
+        setupSearchViewLayout();
+    }
+
+    private void setupSearchViewLayout() {
+        mSearchViewLayout.setExpandedContentSupportFragment(this, new LocationListFragment());
+        mSearchViewLayout.handleToolbarAnimation(getToolbar());
+        mSearchViewLayout.showSearchClearIcon(true);
+        mSearchViewLayout.setCollapsedHint(getString(R.string.hint_select_location));
+        mSearchViewLayout.setExpandedHint(getString(R.string.hint_search_location));
+        mSearchViewLayout.setCollapsedIcon(R.drawable.ic_burger);
+        mSearchViewLayout.setSearchClearIcon(R.drawable.ic_location);
+        mSearchViewLayout.setOnToggleAnimationListener(mSearchViewToggleListener);
+        mSearchViewLayout.setSearchIconOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBurgerClick();
+            }
+        });
+        mSearchViewLayout.setSearchClearOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO: 10/15/2017 implement get current location
+            }
+        });
+
     }
 
     private void setupNavigationDrawer() {
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(drawerToggle);
         mNavigationView.setNavigationItemSelectedListener(this);
+        mBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
     @Override

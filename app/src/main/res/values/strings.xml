@@ -4,7 +4,7 @@
     <string name="title_attractions">Attractions</string>
     <string name="title_tour_packages">Tour Packages</string>
     <string name="title_tour_operators">Tour Operators</string>
-    <string name="hint_select_location">Select Location</string>
+    <string name="hint_select_location">Select location</string>
     <string name="title_category">Category</string>
     <string name="dummy_long_text" >The Schutzstaffel (SS; also stylized as Runic "ᛋᛋ" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally "Protection Squadron") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. </string>
     <string name="action_book_now">Book now</string>
@@ -12,4 +12,5 @@
     <string name="title_top_attractions">Top Attractions</string>
     <string name="close">Close</string>
     <string name="open">Open</string>
+    <string name="hint_search_location">Search location</string>
 </resources>
