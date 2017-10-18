@@ -1,9 +1,10 @@
 package com.travazar.tour.packages.ui.base;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -43,13 +44,15 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
         }
         setSupportActionBar(mToolbar);
     }
-
+    protected void showBackButton(boolean show){
+        getSupportActionBar().setDisplayHomeAsUpEnabled(show);
+    }
     protected Toolbar getToolbar() {
         return mToolbar;
     }
 
     protected <F extends Fragment> void switchFragment(F fragment) {
-        getSupportFragmentManager()
+        getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content, fragment)
                 .commit();
@@ -57,5 +60,9 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     protected TravazarApplication getApp() {
         return ((TravazarApplication) getApplication());
+    }
+
+    protected void startActivity(Class<?> cls) {
+        startActivity(new Intent(this, cls));
     }
 }

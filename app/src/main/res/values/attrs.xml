@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2017.
+  ~ Created by Joseph Mangmang on 10/18/17 5:47 PM
+  -->
+
+<resources>
+    <declare-styleable name="InfoView">
+        <attr name="title" format="string" />
+    </declare-styleable>
+</resources>

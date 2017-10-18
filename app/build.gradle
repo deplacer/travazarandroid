@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'idea'
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.travazar.tour.packages"
         minSdkVersion 15
@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    final PLAY_SERVICE_VERSION = '';
+    final PLAY_SERVICE_VERSION = '11.4.2';
     final SUPPORT_LIBRARY_VERSION = '25.3.1';
     final AUTO_VALUE_VERSION = '1.5'
     final AUTO_VALUE_GSON_VERSION = '0.6.0'
@@ -61,4 +61,5 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
     compile "com.google.code.gson:gson:$RETROFIT_VERSION"
     compile project(':searchviewlayout')
+    compile "com.google.android.gms:play-services-maps:$PLAY_SERVICE_VERSION"
 }

@@ -9,7 +9,7 @@ import com.travazar.tour.packages.ui.base.MvpView;
 public interface MainMvpView extends MvpView{
     void openMainPage();
 
-    void openAttractionPage();
+    void openAttractionListPage();
 
-    void openTourPackagePage();
+    void openTourPackageListPage();
 }

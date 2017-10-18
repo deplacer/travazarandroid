@@ -1,6 +1,5 @@
 package com.travazar.tour.packages.ui.views.list.topattraction;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,8 @@ import android.widget.TextView;
 import com.travazar.tour.packages.GlideApp;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Attraction;
+import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
+import com.travazar.tour.packages.ui.base.BaseViewHolder;
 
 import java.util.List;
 
@@ -20,11 +21,10 @@ import butterknife.ButterKnife;
  * Created by kali_root on 10/13/2017.
  */
 
-public class TopAttractionAdapter extends RecyclerView.Adapter<TopAttractionAdapter.TopAttractionHolder> {
-    private List<Attraction> mAttractions;
+public class TopAttractionAdapter extends BaseRecyclerViewAdapater<Attraction, TopAttractionAdapter.TopAttractionHolder> {
 
     public TopAttractionAdapter(List<Attraction> attractions) {
-        mAttractions = attractions;
+        mDataList = attractions;
     }
 
     @Override
@@ -35,7 +35,8 @@ public class TopAttractionAdapter extends RecyclerView.Adapter<TopAttractionAdap
 
     @Override
     public void onBindViewHolder(TopAttractionHolder holder, int position) {
-        Attraction attraction = mAttractions.get(position);
+        Attraction attraction = mDataList.get(position);
+        holder.onItemClickListener = mOnItemClickListener;
         holder.title.setText(attraction.name());
         GlideApp.with(holder.itemView)
                 .load(attraction.imageUrl())
@@ -44,12 +45,7 @@ public class TopAttractionAdapter extends RecyclerView.Adapter<TopAttractionAdap
 
     }
 
-    @Override
-    public int getItemCount() {
-        return mAttractions.size();
-    }
-
-    class TopAttractionHolder extends RecyclerView.ViewHolder {
+    class TopAttractionHolder extends BaseViewHolder<Attraction> {
         @BindView(R.id.text_title)
         TextView title;
         @BindView(R.id.image_thumbnail)

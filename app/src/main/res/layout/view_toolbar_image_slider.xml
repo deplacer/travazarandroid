@@ -15,7 +15,7 @@
         app:expandedTitleMarginBottom="50dp"
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-        <co.travazar.tour.ui.view.imageslider.ImageSlider
+        <com.travazar.tour.packages.ui.views.imageslider.ImageSlider
             android:id="@+id/image_slider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbar_image_height"

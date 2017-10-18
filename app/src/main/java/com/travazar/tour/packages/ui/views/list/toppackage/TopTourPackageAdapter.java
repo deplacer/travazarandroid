@@ -1,7 +1,6 @@
 package com.travazar.tour.packages.ui.views.list.toppackage;
 
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import android.widget.TextView;
 import com.travazar.tour.packages.GlideApp;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.TourPackage;
+import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
+import com.travazar.tour.packages.ui.base.BaseViewHolder;
 
 import java.util.List;
 
@@ -23,11 +24,10 @@ import butterknife.ButterKnife;
  * Created by kali_root on 10/12/2017.
  */
 
-public class TopTourPackageAdapter extends RecyclerView.Adapter<TopTourPackageAdapter.TopTourPackageHolder> {
-    List<TourPackage> mTourPackages;
+public class TopTourPackageAdapter extends BaseRecyclerViewAdapater<TourPackage, TopTourPackageAdapter.TopTourPackageHolder> {
 
     public TopTourPackageAdapter(@NonNull List<TourPackage> tourPackages) {
-        mTourPackages = tourPackages;
+        mDataList = tourPackages;
     }
 
     @Override
@@ -40,6 +40,7 @@ public class TopTourPackageAdapter extends RecyclerView.Adapter<TopTourPackageAd
     public void onBindViewHolder(TopTourPackageHolder holder, int position) {
         // TODO: 10/12/2017 implement this
         // dummy
+        holder.onItemClickListener = mOnItemClickListener;
         GlideApp.with(holder.itemView)
                 .load("http://aws-cdn-01.shemazing.ie/wp-content/uploads/2015/09/tower_2.jpg")
                 .error(R.drawable.dummy_image_preview)
@@ -47,12 +48,7 @@ public class TopTourPackageAdapter extends RecyclerView.Adapter<TopTourPackageAd
                 .into(holder.thumbnail);
     }
 
-    @Override
-    public int getItemCount() {
-        return mTourPackages.size();
-    }
-
-    class TopTourPackageHolder extends RecyclerView.ViewHolder {
+    class TopTourPackageHolder extends BaseViewHolder<TourPackage> {
         @BindView(R.id.text_title)
         TextView title;
         @BindView(R.id.image_thumbnail)

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.dummy.Dummy;
+import com.travazar.tour.packages.ui.base.BaseFragment;
 import com.travazar.tour.packages.ui.views.imageslider.ImageSlider;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
  * Created by kali_root on 10/12/2017.
  */
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseFragment {
     @BindView(R.id.slider_features)
     ImageSlider mFeaturesSlider;
 

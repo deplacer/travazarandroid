@@ -26,6 +26,8 @@ public class Dummy {
                 "https://2.bp.blogspot.com/-VmT8cnTLFSM/WKjVOIMymPI/AAAAAAAAEro/HB4yzqatH5QbsaEsq-aS53FRLkpgefpogCLcB/s1600/quezon-tourist-spots.jpg",
                 933.3,
                 -12.33,
+                4.5,
+                "2,300 reviews",
                 "Philippines", "", "Bohol", "Quezon is one of the provinces near Manila with a lot of tourist destinations to offer, either mountains, water and historical landmarks. It is very accessible because transportation is much easier and travel period is 2 to 3 hours. It is still part of southern Luzon region."
         ));
         attractions.add(Attraction.create(
@@ -34,6 +36,8 @@ public class Dummy {
                 "https://1.bp.blogspot.com/-Zs-4id83c3o/WKjVMMKPliI/AAAAAAAAErg/1v61K2iVLs0QIgtTwV0fZNUx8IBf5FL4QCLcB/s640/quezon-tourist-destinations.JPG",
                 933.3,
                 -12.33,
+                4.5,
+                "2,300 reviews",
                 "Philippines", "", "Bohol", "Quezon is one of the provinces near Manila with a lot of tourist destinations to offer, either mountains, water and historical landmarks. It is very accessible because transportation is much easier and travel period is 2 to 3 hours. It is still part of southern Luzon region."
         ));
         attractions.add(Attraction.create(
@@ -42,6 +46,8 @@ public class Dummy {
                 "https://1.bp.blogspot.com/-EGxAWWce0tU/WKjWV2XkRSI/AAAAAAAAEr0/xNXenrvWxGUE7xBR9QYzalWlnjXfXJppgCLcB/s640/mt-cristobal.JPG",
                 933.3,
                 -12.33,
+                4.5,
+                "2,300 reviews",
                 "Philippines", "", "Bohol", "Quezon is one of the provinces near Manila with a lot of tourist destinations to offer, either mountains, water and historical landmarks. It is very accessible because transportation is much easier and travel period is 2 to 3 hours. It is still part of southern Luzon region."
         ));
         attractions.add(Attraction.create(
@@ -50,6 +56,8 @@ public class Dummy {
                 "https://2.bp.blogspot.com/-VmT8cnTLFSM/WKjVOIMymPI/AAAAAAAAEro/HB4yzqatH5QbsaEsq-aS53FRLkpgefpogCLcB/s1600/quezon-tourist-spots.jpg",
                 933.3,
                 -12.33,
+                4.5,
+                "2,300 reviews",
                 "Philippines", "", "Bohol", "Quezon is one of the provinces near Manila with a lot of tourist destinations to offer, either mountains, water and historical landmarks. It is very accessible because transportation is much easier and travel period is 2 to 3 hours. It is still part of southern Luzon region."
         ));
         attractions.add(Attraction.create(
@@ -58,6 +66,8 @@ public class Dummy {
                 "https://1.bp.blogspot.com/-Zs-4id83c3o/WKjVMMKPliI/AAAAAAAAErg/1v61K2iVLs0QIgtTwV0fZNUx8IBf5FL4QCLcB/s640/quezon-tourist-destinations.JPG",
                 933.3,
                 -12.33,
+                4.5,
+                "2,300 reviews",
                 "Philippines", "", "Bohol", "Quezon is one of the provinces near Manila with a lot of tourist destinations to offer, either mountains, water and historical landmarks. It is very accessible because transportation is much easier and travel period is 2 to 3 hours. It is still part of southern Luzon region."
         ));
         return attractions;
