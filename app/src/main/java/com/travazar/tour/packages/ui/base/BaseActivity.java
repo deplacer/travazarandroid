@@ -17,7 +17,7 @@ import com.travazar.tour.packages.TravazarApplication;
  * Created by kali_root on 10/12/2017.
  */
 
-public class BaseActivity extends AppCompatActivity implements MvpView {
+public class BaseActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     @Override

@@ -2,7 +2,6 @@ package com.travazar.tour.packages.ui.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -13,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.travazar.tour.packages.R;
-import com.travazar.tour.packages.data.DataManager;
 import com.travazar.tour.packages.ui.attraction.AttractionListActivity;
 import com.travazar.tour.packages.ui.base.BaseActivity;
 import com.travazar.tour.packages.ui.views.LocationSearchViewLayout;
@@ -22,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.sahildave.widget.SearchViewLayout;
 
-public class MainActivity extends BaseActivity implements MainMvpView, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
@@ -33,7 +31,6 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
     @BindView(R.id.navigation_bottom)
     BottomNavigationView mBottomNavigationView;
 
-    private MainPresenter mMainPresenter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,16 +41,16 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
                 case R.id.navigation_item_home:
                     break;
                 case R.id.navigation_item_attractions:
-                    openAttractionListPage();
+                    openAttractionList();
                     break;
                 case R.id.navigation_item_tour_packages:
-                    openTourPackageListPage();
                     break;
             }
             return false;
         }
 
     };
+
     private SearchViewLayout.OnToggleAnimationListener mSearchViewToggleListener = new SearchViewLayout.OnToggleAnimationListener() {
         @Override
         public void onStart(boolean expanding) {
@@ -71,12 +68,15 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        DataManager dataManager = getApp().getDataManager();
-        mMainPresenter = new MainPresenter(dataManager);
-        mMainPresenter.onAttach(this);
-        openMainPage();
+        switchFragment(new MainFragment());
         setupNavigationDrawer();
         setupSearchViewLayout();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        return false;
     }
 
     private void setupSearchViewLayout() {
@@ -107,25 +107,9 @@ public class MainActivity extends BaseActivity implements MainMvpView, Navigatio
         bottomMenu.findItem(R.id.navigation_item_tour_packages).setCheckable(false);
     }
 
-    @Override
-    public void openMainPage() {
-        switchFragment(new MainFragment());
-    }
 
-    @Override
-    public void openAttractionListPage() {
+    private void openAttractionList() {
         startActivity(AttractionListActivity.class);
-    }
-
-    @Override
-    public void openTourPackageListPage() {
-
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        return false;
     }
 
     private void onBurgerClick() {
