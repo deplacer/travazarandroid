@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     LocationSearchViewLayout mSearchViewLayout;
     @BindView(R.id.navigation_bottom)
     BottomNavigationView mBottomNavigationView;
-
+    private MainPresenter mMainPresenter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,12 +44,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                     openAttractionList();
                     break;
                 case R.id.navigation_item_tour_packages:
+                    openTourPackageList();
                     break;
             }
             return false;
         }
 
     };
+
 
     private SearchViewLayout.OnToggleAnimationListener mSearchViewToggleListener = new SearchViewLayout.OnToggleAnimationListener() {
         @Override
@@ -68,7 +70,14 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        switchFragment(new MainFragment());
+
+        MainFragment mainFragment = (MainFragment) getFragmentManager().findFragmentById(R.id.content);
+        if (mainFragment == null) {
+            mainFragment = MainFragment.newInstance();
+            switchFragment(mainFragment);
+        }
+        mMainPresenter = new MainPresenter(mainFragment);
+
         setupNavigationDrawer();
         setupSearchViewLayout();
     }
@@ -86,13 +95,13 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         mSearchViewLayout.setSearchIconOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBurgerClick();
+                toggleDrawer();
             }
         });
         mSearchViewLayout.setSearchClearOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: 10/15/2017 implement get current location
+                mMainPresenter.detectCurrentLocation();
             }
         });
     }
@@ -112,7 +121,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         startActivity(AttractionListActivity.class);
     }
 
-    private void onBurgerClick() {
+    private void openTourPackageList() {
+
+    }
+
+    private void toggleDrawer() {
         if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
             mDrawerLayout.closeDrawer(Gravity.START);
         } else {

@@ -26,6 +26,7 @@ import com.travazar.tour.packages.data.model.Attraction;
 
 public class AttractionMapFragment extends MapFragment implements OnMapReadyCallback {
 
+    public static final String TAG = AttractionMapFragment.class.getSimpleName();
     private GoogleMap mGoogleMap;
     private LatLngBounds.Builder mLatLngBoundsBuilder;
 
@@ -46,6 +47,11 @@ public class AttractionMapFragment extends MapFragment implements OnMapReadyCall
             return null;
         }
     };
+
+    public static AttractionMapFragment newInstance() {
+        return new AttractionMapFragment();
+    }
+
 
     @Override
     public void onCreate(Bundle bundle) {

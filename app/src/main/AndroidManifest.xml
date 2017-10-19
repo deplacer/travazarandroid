@@ -21,8 +21,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:label="@string/title_attractions"
-            android:name=".ui.attraction.AttractionListActivity" />
+            android:name=".ui.attraction.AttractionListActivity"
+            android:label="@string/title_attractions" />
+        <activity
+            android:name=".ui.attraction.details.AttractionDetailsActivity"
+            android:label="" />
 
         <meta-data
             android:name="com.google.android.gms.version"

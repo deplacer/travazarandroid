@@ -42,6 +42,7 @@ public class AttractionAdapter extends BaseRecyclerViewAdapater<Attraction, Attr
     @Override
     public void onBindViewHolder(AttractionHolder holder, int position) {
         Attraction attraction = mDataList.get(position);
+        holder.data = attraction;
         holder.onItemClickListener = mOnItemClickListener;
         holder.title.setText(attraction.name());
         holder.address.setText(attraction.getAddress());

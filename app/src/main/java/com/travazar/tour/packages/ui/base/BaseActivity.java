@@ -51,11 +51,12 @@ public class BaseActivity extends AppCompatActivity {
         return mToolbar;
     }
 
-    protected <F extends Fragment> void switchFragment(F fragment) {
+    protected <F extends Fragment> F switchFragment(F fragment) {
         getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content, fragment)
                 .commit();
+        return fragment;
     }
 
     protected TravazarApplication getApp() {

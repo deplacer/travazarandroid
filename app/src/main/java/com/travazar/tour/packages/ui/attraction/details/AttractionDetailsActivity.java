@@ -5,18 +5,37 @@
 
 package com.travazar.tour.packages.ui.attraction.details;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.travazar.tour.packages.R;
+import com.travazar.tour.packages.data.model.Attraction;
+import com.travazar.tour.packages.ui.attraction.event.AttractionEvent;
 import com.travazar.tour.packages.ui.base.BaseActivity;
 import com.travazar.tour.packages.ui.views.InfoView;
 import com.travazar.tour.packages.ui.views.imageslider.ImageSlider;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.bumptech.glide.util.Preconditions.checkNotNull;
 
 /**
  * Created by kali_root on 10/18/2017.
@@ -25,7 +44,7 @@ import butterknife.ButterKnife;
 public class AttractionDetailsActivity extends BaseActivity {
     @BindView(R.id.image_slider)
     ImageSlider mImageSlider;
-    @BindView(R.id.text_title)
+    @BindView(R.id.text_attraction_name)
     TextView mTitle;
     @BindView(R.id.rating_bar)
     RatingBar mRatingBar;
@@ -36,10 +55,68 @@ public class AttractionDetailsActivity extends BaseActivity {
     @BindView(R.id.info_overview)
     InfoView mOverview;
 
+    private MapFragment mMapSnapshot;
+    private Attraction mAttraction;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attraction_details);
         ButterKnife.bind(this);
+        showBackButton(true);
+        mMapSnapshot = (MapFragment) getFragmentManager().findFragmentById(R.id.map_snapshot);
+        checkNotNull(mMapSnapshot);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        super.onBackPressed();
+        return true;
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onAttractionEvent(AttractionEvent attractionEvent) {
+        EventBus.getDefault().removeStickyEvent(attractionEvent);
+        mAttraction = checkNotNull(attractionEvent.attraction);
+        showAttractionDetails();
+    }
+
+    private void showAttractionDetails() {
+        List<String> imgs = new ArrayList<>();
+        imgs.add(mAttraction.imageUrl());
+        mImageSlider.setDataList(imgs);
+        mTitle.setText(mAttraction.name());
+        mRatingBar.setRating((float) mAttraction.rating());
+        mTotalReview.setText(mAttraction.totalReviews());
+        mAddress.setText(mAttraction.getAddress());
+        mOverview.setBody(mAttraction.overview());
+        mMapSnapshot.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                if (googleMap != null) {
+                    LatLng latLng = new LatLng(mAttraction.latitude(), mAttraction.longitude());
+                    googleMap.addMarker(new MarkerOptions()
+                            .position(latLng)
+                            .title(mAttraction.getAddress()));
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 8f));
+                }
+            }
+        });
+    }
+
+    public static void launch(Context context) {
+        context.startActivity(new Intent(context, AttractionDetailsActivity.class));
     }
 }

@@ -9,7 +9,6 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.travazar.tour.packages.R;
@@ -57,10 +56,19 @@ public class AttractionListActivity extends BaseActivity {
         setContentView(R.layout.activity_list_content);
         ButterKnife.bind(this);
         showBackButton(true);
-        mAttractionListFragment = new AttractionListFragment();
-        mMapFragment = new AttractionMapFragment();
 
-        switchFragment(mAttractionListFragment);
+        mAttractionListFragment = (AttractionListFragment) getFragmentManager()
+                .findFragmentByTag(AttractionListFragment.TAG);
+        mMapFragment = (AttractionMapFragment) getFragmentManager()
+                .findFragmentByTag(AttractionMapFragment.TAG);
+
+        if (mAttractionListFragment == null) {
+            mAttractionListFragment = switchFragment(AttractionListFragment.newInstance());
+        }
+        if (mMapFragment == null) {
+            mMapFragment = AttractionMapFragment.newInstance();
+        }
+        new AttractionListPresenter(mAttractionListFragment);
 
         mBottomSheet = BottomSheetBehavior.from(mListOptionView);
         mListOptionView.setFilterButtonClickListener(mFilterButtonClickListener);
