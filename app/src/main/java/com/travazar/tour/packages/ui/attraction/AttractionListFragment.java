@@ -56,6 +56,7 @@ public class AttractionListFragment extends BaseFragment implements
 
     private void prepreRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
