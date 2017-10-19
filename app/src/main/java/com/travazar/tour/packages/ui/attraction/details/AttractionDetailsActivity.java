@@ -58,6 +58,10 @@ public class AttractionDetailsActivity extends BaseActivity {
     private MapFragment mMapSnapshot;
     private Attraction mAttraction;
 
+    public static void launch(Context context) {
+        context.startActivity(new Intent(context, AttractionDetailsActivity.class));
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +120,4 @@ public class AttractionDetailsActivity extends BaseActivity {
         });
     }
 
-    public static void launch(Context context) {
-        context.startActivity(new Intent(context, AttractionDetailsActivity.class));
-    }
 }
