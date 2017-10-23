@@ -74,7 +74,6 @@ public class AttractionListFragment extends BaseFragment implements
 
     @Override
     public void showAttractionDetails(Attraction attraction) {
-        EventBus.getDefault().postSticky(new AttractionEvent(attraction));
-        AttractionDetailsActivity.launch(mContext);
+        AttractionDetailsActivity.launch(mContext, attraction);
     }
 }
