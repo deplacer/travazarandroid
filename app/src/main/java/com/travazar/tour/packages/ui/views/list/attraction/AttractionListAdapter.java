@@ -21,9 +21,9 @@ import butterknife.ButterKnife;
  * Created by kali_root on 10/13/2017.
  */
 
-public class TopAttractionAdapter extends BaseRecyclerViewAdapater<Attraction, TopAttractionAdapter.TopAttractionHolder> {
+public class AttractionListAdapter extends BaseRecyclerViewAdapater<Attraction, AttractionListAdapter.TopAttractionHolder> {
 
-    public TopAttractionAdapter(List<Attraction> attractions) {
+    public AttractionListAdapter(List<Attraction> attractions) {
         mDataList = attractions;
     }
 

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class TourPackageListLayout extends ListViewLayout {
     List<TourPackage> mTourPackages;
-    private TopTourPackageAdapter mAdapter;
+    private TourPackageListAdapter mAdapter;
 
     public TourPackageListLayout(Context context) {
         super(context);
@@ -39,7 +39,7 @@ public class TourPackageListLayout extends ListViewLayout {
             mTourPackages.add(null);
             mTourPackages.add(null);
         }
-        mAdapter = new TopTourPackageAdapter(mTourPackages);
+        mAdapter = new TourPackageListAdapter(mTourPackages);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);

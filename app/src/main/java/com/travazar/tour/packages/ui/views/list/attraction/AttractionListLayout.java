@@ -17,7 +17,7 @@ import java.util.List;
 
 public class AttractionListLayout extends ListViewLayout {
     private List<Attraction> mAttractions;
-    private TopAttractionAdapter mAdapter;
+    private AttractionListAdapter mAdapter;
 
     public AttractionListLayout(Context context) {
         super(context);
@@ -34,7 +34,7 @@ public class AttractionListLayout extends ListViewLayout {
     @Override
     protected void onPrepareRecyclerView() {
         mAttractions = Dummy.getTopAttractions();
-        mAdapter = new TopAttractionAdapter(mAttractions);
+        mAdapter = new AttractionListAdapter(mAttractions);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);

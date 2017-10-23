@@ -24,9 +24,9 @@ import butterknife.ButterKnife;
  * Created by kali_root on 10/12/2017.
  */
 
-public class TopTourPackageAdapter extends BaseRecyclerViewAdapater<TourPackage, TopTourPackageAdapter.TopTourPackageHolder> {
+public class TourPackageListAdapter extends BaseRecyclerViewAdapater<TourPackage, TourPackageListAdapter.TopTourPackageHolder> {
 
-    public TopTourPackageAdapter(@NonNull List<TourPackage> tourPackages) {
+    public TourPackageListAdapter(@NonNull List<TourPackage> tourPackages) {
         mDataList = tourPackages;
     }
 
