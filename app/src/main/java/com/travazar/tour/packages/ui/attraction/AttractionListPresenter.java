@@ -5,8 +5,10 @@ package com.travazar.tour.packages.ui.attraction;
  * Created by Joseph Mangmang on 10/19/17 5:50 PM
  */
 
-import com.google.common.base.Preconditions;
+import android.content.Context;
+
 import com.travazar.tour.packages.data.model.Attraction;
+import com.travazar.tour.packages.ui.attraction.details.AttractionDetailsActivity;
 
 import static com.bumptech.glide.util.Preconditions.checkNotNull;
 
@@ -28,8 +30,8 @@ public class AttractionListPresenter implements AttractionListContract.Presenter
     }
 
     @Override
-    public void opernAttraction(Attraction attraction) {
+    public void openAttractionDetails(Context context, Attraction attraction) {
         checkNotNull(attraction);
-        mAttractionListView.showAttractionDetails(attraction);
+        AttractionDetailsActivity.launch(context, attraction);
     }
 }

@@ -5,6 +5,8 @@ package com.travazar.tour.packages.ui.attraction;
  * Created by Joseph Mangmang on 10/19/17 5:45 PM
  */
 
+import android.content.Context;
+
 import com.travazar.tour.packages.data.model.Attraction;
 import com.travazar.tour.packages.ui.base.BasePresenter;
 import com.travazar.tour.packages.ui.base.BaseView;
@@ -15,10 +17,9 @@ import com.travazar.tour.packages.ui.base.BaseView;
 
 public interface AttractionListContract {
     interface View extends BaseView<Presenter>{
-        void showAttractionDetails(Attraction attraction);
     }
     interface Presenter extends BasePresenter{
 
-        void opernAttraction(Attraction attraction);
+        void openAttractionDetails(Context context, Attraction attraction);
     }
 }

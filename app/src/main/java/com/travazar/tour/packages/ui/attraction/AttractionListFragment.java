@@ -1,6 +1,5 @@
 package com.travazar.tour.packages.ui.attraction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,12 +10,8 @@ import android.view.ViewGroup;
 
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Attraction;
-import com.travazar.tour.packages.ui.attraction.details.AttractionDetailsActivity;
-import com.travazar.tour.packages.ui.attraction.event.AttractionEvent;
 import com.travazar.tour.packages.ui.base.BaseFragment;
 import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,7 +59,7 @@ public class AttractionListFragment extends BaseFragment implements
 
     @Override
     public void onItemClick(Attraction data) {
-        mPresenter.opernAttraction(data);
+        mPresenter.openAttractionDetails(mContext, data);
     }
 
     @Override
@@ -72,8 +67,4 @@ public class AttractionListFragment extends BaseFragment implements
         mPresenter = checkNotNull(presenter);
     }
 
-    @Override
-    public void showAttractionDetails(Attraction attraction) {
-        AttractionDetailsActivity.launch(mContext, attraction);
-    }
 }
