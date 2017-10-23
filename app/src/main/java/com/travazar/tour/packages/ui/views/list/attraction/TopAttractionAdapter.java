@@ -1,4 +1,4 @@
-package com.travazar.tour.packages.ui.views.list.topattraction;
+package com.travazar.tour.packages.ui.views.list.attraction;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -20,13 +20,13 @@
             android:layout_height="wrap_content"
             app:showMoreButton="false" />
 
-        <com.travazar.tour.packages.ui.views.list.toppackage.TourPackageListLayout
+        <com.travazar.tour.packages.ui.views.list.tourpackage.TourPackageListLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:showMoreButton="false"
             app:title="@string/title_top_packages" />
 
-        <com.travazar.tour.packages.ui.views.list.topattraction.AttractionListLayout
+        <com.travazar.tour.packages.ui.views.list.attraction.AttractionListLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_huge"

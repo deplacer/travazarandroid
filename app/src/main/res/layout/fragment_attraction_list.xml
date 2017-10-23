@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.travazar.tour.packages.ui.views.list.topattraction.AttractionListLayout
+        <com.travazar.tour.packages.ui.views.list.attraction.AttractionListLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_medium"

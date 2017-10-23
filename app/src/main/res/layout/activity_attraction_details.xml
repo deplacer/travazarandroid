@@ -80,7 +80,7 @@
                 android:layout_margin="@dimen/margin_medium"
                 app:title="@string/title_overview" />
 
-            <com.travazar.tour.packages.ui.views.list.toppackage.TourPackageListLayout
+            <com.travazar.tour.packages.ui.views.list.tourpackage.TourPackageListLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_medium"

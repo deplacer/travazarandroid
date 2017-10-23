@@ -1,12 +1,10 @@
-package com.travazar.tour.packages.ui.views.list.toppackage;
+package com.travazar.tour.packages.ui.views.list.tourpackage;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 
-import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.TourPackage;
 import com.travazar.tour.packages.ui.views.list.base.ListViewLayout;
 

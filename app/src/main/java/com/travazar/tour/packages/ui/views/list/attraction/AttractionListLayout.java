@@ -1,16 +1,14 @@
-package com.travazar.tour.packages.ui.views.list.topattraction;
+package com.travazar.tour.packages.ui.views.list.attraction;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 
-import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Attraction;
 import com.travazar.tour.packages.dummy.Dummy;
 import com.travazar.tour.packages.ui.views.list.base.ListViewLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
