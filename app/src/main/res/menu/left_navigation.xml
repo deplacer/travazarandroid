@@ -9,13 +9,13 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/title_home" />
         <item
-            android:id="@+id/navigation_item_attractions"
-            android:icon="@drawable/ic_adventure_travel"
-            android:title="@string/title_attractions" />
-        <item
             android:id="@+id/navigation_item_tour_packages"
             android:icon="@drawable/ic_adventure_travel"
             android:title="@string/title_tour_packages" />
+        <item
+            android:id="@+id/navigation_item_attractions"
+            android:icon="@drawable/ic_adventure_travel"
+            android:title="@string/title_attractions" />
         <item
             android:id="@+id/navigation_item_tour_operator"
             android:icon="@drawable/ic_adventure_travel"
