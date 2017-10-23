@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.travazar.tour.packages.GlideApp;
 import com.travazar.tour.packages.R;
+import com.travazar.tour.packages.data.model.Slider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 
 
 public class SliderAdapter extends PagerAdapter {
-    private List<String> imageUrls;
+    private List<Slider> sliders;
     private LayoutInflater mInflater;
     private Context context;
 
@@ -24,32 +25,32 @@ public class SliderAdapter extends PagerAdapter {
         this(context, null);
     }
 
-    public SliderAdapter(Context context, List<String> imageUrls) {
+    public SliderAdapter(Context context, List<Slider> sliders) {
         this.context = context;
         mInflater = LayoutInflater.from(context);
-        if (imageUrls == null) {
-            this.imageUrls = new ArrayList<>();
+        if (sliders == null) {
+            this.sliders = new ArrayList<>();
         } else {
-            this.imageUrls = imageUrls;
+            this.sliders = sliders;
         }
     }
 
     @Override
     public int getCount() {
-        return imageUrls.size();
+        return sliders.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "";
+        return sliders.get(position).name();
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView view = (ImageView) mInflater.inflate(R.layout.view_slider, container, false);
-        String url = imageUrls.get(position);
+        Slider slider = sliders.get(position);
         GlideApp.with(context)
-                .load(url)
+                .load(slider.imageUrl())
                 .thumbnail(0.1f)
                 .placeholder(R.drawable.dummy_image_preview)
                 .into(view);
@@ -67,8 +68,8 @@ public class SliderAdapter extends PagerAdapter {
         container.removeView((View) object);
     }
 
-    public void setImageUrls(List<String> imageUrls) {
-        this.imageUrls = imageUrls;
+    public void setSliders(List<Slider> sliders) {
+        this.sliders = sliders;
         notifyDataSetChanged();
     }
 

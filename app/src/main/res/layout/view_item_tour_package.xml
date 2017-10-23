@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_medium">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_small">
+
+        <com.travazar.tour.packages.ui.views.imageslider.ImageSlider
+            android:id="@+id/tour_package_image_slider"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_tour_package_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="marquee"
+            android:maxLines="2"
+            android:textSize="@dimen/title"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tour_package_image_slider"
+            tools:text="Affordable Bohol Countryside Whole Day Tour" />
+
+        <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/tour_package_rating_bar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:rating="4.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_tour_package_title" />
+
+        <TextView
+            android:id="@+id/text_tour_package_total_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toRightOf="@+id/tour_package_rating_bar"
+            app:layout_constraintTop_toBottomOf="@+id/text_tour_package_title"
+            tools:text="540" />
+
+        <TextView
+            android:id="@+id/text_tour_package_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/headline"
+            android:textStyle="bold"
+            app:layout_constraintRight_toLeftOf="@+id/text_tour_package_number_person"
+            app:layout_constraintTop_toBottomOf="@+id/text_tour_package_title"
+            tools:text="P1,000" />
+
+        <TextView
+            android:id="@+id/text_tour_package_number_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/caption"
+            app:layout_constraintBottom_toBottomOf="@+id/text_tour_package_price"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_tour_package_title"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="/ 1 person" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

@@ -14,6 +14,7 @@ import android.view.View;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.ui.attraction.AttractionListActivity;
 import com.travazar.tour.packages.ui.base.BaseActivity;
+import com.travazar.tour.packages.ui.tourpackage.TourPackageListActivity;
 import com.travazar.tour.packages.ui.views.LocationSearchViewLayout;
 
 import butterknife.BindView;
@@ -84,7 +85,25 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+        switch (item.getItemId()) {
+            case R.id.navigation_item_tour_packages:
+                openTourPackageList();
+                break;
+            case R.id.navigation_item_attractions:
+                openAttractionList();
+                break;
+            case R.id.navigation_item_tour_operator:
+                break;
+            case R.id.navigation_item_my_booking:
+                break;
+            case R.id.navigation_item_my_account:
+                break;
+            case R.id.navigation_item_settings:
+                break;
+            case R.id.navigation_item_about:
+                break;
+        }
+        mDrawerLayout.closeDrawer(Gravity.START);
         return false;
     }
 
@@ -122,7 +141,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void openTourPackageList() {
-
+        startActivity(TourPackageListActivity.class);
     }
 
     private void toggleDrawer() {

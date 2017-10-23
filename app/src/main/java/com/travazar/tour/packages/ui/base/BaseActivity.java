@@ -44,11 +44,21 @@ public class BaseActivity extends AppCompatActivity {
         }
         setSupportActionBar(mToolbar);
     }
-    protected void showBackButton(boolean show){
+
+    protected void showBackButton(boolean show) {
         getSupportActionBar().setDisplayHomeAsUpEnabled(show);
     }
+
     protected Toolbar getToolbar() {
         return mToolbar;
+    }
+
+    protected <F extends Fragment> F switchFragment(F fragment, String tag) {
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content, fragment, tag)
+                .commit();
+        return fragment;
     }
 
     protected <F extends Fragment> F switchFragment(F fragment) {

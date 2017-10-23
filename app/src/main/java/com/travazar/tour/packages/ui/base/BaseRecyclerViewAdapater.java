@@ -7,6 +7,7 @@ package com.travazar.tour.packages.ui.base;
 
 import android.support.v7.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,13 +16,15 @@ import java.util.List;
 
 public abstract class BaseRecyclerViewAdapater<DataType, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
-    public List<DataType> mDataList;
+    protected List<DataType> mDataList;
     protected OnItemClickListener mOnItemClickListener;
 
     public interface OnItemClickListener<DataType> {
         void onItemClick(DataType data);
     }
-
+    public BaseRecyclerViewAdapater(){
+        mDataList = new ArrayList<>();
+    }
     @Override
     public int getItemCount() {
         return mDataList.size();
@@ -29,5 +32,9 @@ public abstract class BaseRecyclerViewAdapater<DataType, VH extends RecyclerView
 
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         mOnItemClickListener = itemClickListener;
+    }
+    public void setDataList(List<DataType> dataList){
+        mDataList = dataList;
+        notifyDataSetChanged();
     }
 }

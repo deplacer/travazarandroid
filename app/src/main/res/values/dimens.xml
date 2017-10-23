@@ -44,4 +44,5 @@
     <dimen name="list_thumbnails_height">160dp</dimen>
     <dimen name="list_dive_shop_height">185dp</dimen>
     <dimen name="image_slider_height">170dp</dimen>
+    <dimen name="tour_package_image_slider_height">180dp</dimen>
 </resources>

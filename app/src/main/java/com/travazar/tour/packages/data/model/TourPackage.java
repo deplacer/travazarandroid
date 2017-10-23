@@ -1,6 +1,7 @@
 package com.travazar.tour.packages.data.model;
 
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
@@ -19,6 +20,10 @@ public abstract class TourPackage implements Parcelable {
 
     public abstract String tourCode();
 
+    public abstract double rating();
+
+    public abstract String totalReviews();
+
     public abstract String departurePoint();
 
     public abstract String departureTime();
@@ -29,22 +34,30 @@ public abstract class TourPackage implements Parcelable {
 
     public abstract String duration();
 
+    @Nullable
     public abstract String inclusions();
 
+    @Nullable
     public abstract String exclusions();
 
+    @Nullable
     public abstract String description();
 
+    @Nullable
     public abstract String shortDescription();
 
+    @Nullable
     public abstract String highlights();
 
+    @Nullable
     public abstract String termAndConditions();
 
+    @Nullable
     public abstract String voucherInfo();
 
     public abstract boolean available();
 
+    @Nullable
     public abstract String additionalInfo();
 
     public abstract List<PriceOption> priceOptions();
@@ -96,6 +109,10 @@ public abstract class TourPackage implements Parcelable {
         public abstract Builder priceOptions(List<PriceOption> priceOptions);
 
         public abstract Builder destinations(List<Destination> destinations);
+
+        public abstract Builder rating(double rating);
+
+        public abstract Builder totalReviews(String totalReviews);
 
         public abstract TourPackage build();
     }

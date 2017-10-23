@@ -20,6 +20,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Attraction;
+import com.travazar.tour.packages.data.model.Slider;
 import com.travazar.tour.packages.ui.attraction.event.AttractionEvent;
 import com.travazar.tour.packages.ui.base.BaseActivity;
 import com.travazar.tour.packages.ui.views.InfoView;
@@ -100,9 +101,12 @@ public class AttractionDetailsActivity extends BaseActivity {
     }
 
     private void showAttractionDetails() {
-        List<String> imgs = new ArrayList<>();
-        imgs.add(mAttraction.imageUrl());
-        mImageSlider.setDataList(imgs);
+        List<Slider> sliders = new ArrayList<>();
+        sliders.add(Slider.builder()
+                .imageUrl(mAttraction.imageUrl())
+                .build());
+
+        mImageSlider.setDataList(sliders);
         mTitle.setText(mAttraction.name());
         mRatingBar.setRating((float) mAttraction.rating());
         mTotalReview.setText(mAttraction.totalReviews());

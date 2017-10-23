@@ -8,6 +8,10 @@
         <!--     <item name="android:statusBarColor">@android:color/transparent</item> -->
     </style>
 
+    <style name="AppTheme.NoActionBar.TransparentStatusBar" parent="AppTheme.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
     <style name="AppTheme.NoStatusBar" parent="AppTheme.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="windowActionBarOverlay">true</item>

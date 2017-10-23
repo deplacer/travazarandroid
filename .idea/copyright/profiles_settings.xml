@@ -1,8 +1,5 @@
 <component name="CopyrightManager">
-  <settings default="Joseph Mangmang">
-    <module2copyright>
-      <element module="Project Files" copyright="Joseph Mangmang" />
-    </module2copyright>
+  <settings default="">
     <LanguageOptions name="JAVA">
       <option name="fileLocation" value="3" />
     </LanguageOptions>

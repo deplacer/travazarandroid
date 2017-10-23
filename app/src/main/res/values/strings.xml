@@ -6,7 +6,7 @@
     <string name="title_tour_operators">Tour Operators</string>
     <string name="hint_select_location">Select location</string>
     <string name="title_category">Category</string>
-    <string name="dummy_long_text" >The Schutzstaffel (SS; also stylized as Runic "ᛋᛋ" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally "Protection Squadron") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. </string>
+    <string name="dummy_long_text">The Schutzstaffel (SS; also stylized as Runic "ᛋᛋ" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally "Protection Squadron") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. </string>
     <string name="action_book_now">Book now</string>
     <string name="title_top_packages">Top Packages</string>
     <string name="title_top_attractions">Top Attractions</string>
@@ -25,4 +25,19 @@
     <string name="action_show_more">Show more</string>
     <string name="title_overview">Overview</string>
     <string name="action_more">More</string>
+    <plurals name="message_number_of_person">
+        <item quantity="one">/ %d person</item>
+        <item quantity="many">/ %d persons</item>
+    </plurals>
+    <plurals name="displayed_price">
+        <item quantity="one">
+        [<![CDATA[
+        <font size="3">%1$s %2$s</font>/ per %3$d person</h4>
+        ]]></item>
+        <item quantity="many">
+        [<![CDATA[
+        <font size="3">%1$s %2$s</font>/ per %3$d persons</h4>
+        ]]>
+        </item>
+    </plurals>
 </resources>

@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.travazar.tour.packages.R;
+import com.travazar.tour.packages.data.model.Slider;
 
 import java.util.List;
 
@@ -68,19 +69,14 @@ public class ImageSlider extends RelativeLayout {
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(onPageChangeListener);
-        circleIndicator.setViewPager(viewPager);
-        adapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
+        //circleIndicator.setViewPager(viewPager);
         runAutoNext();
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        adapter.unregisterDataSetObserver(circleIndicator.getDataSetObserver());
-        super.onDetachedFromWindow();
-    }
 
-    public void setDataList(List<String> imageUrls) {
-        adapter.setImageUrls(imageUrls);
+    public void setDataList(List<Slider> imageUrls) {
+        adapter.setSliders(imageUrls);
+        circleIndicator.setViewPager(viewPager);
         onPageChangeListener.onPageSelected(viewPager.getCurrentItem());
     }
 
