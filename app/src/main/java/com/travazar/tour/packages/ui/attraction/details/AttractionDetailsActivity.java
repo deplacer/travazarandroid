@@ -58,7 +58,9 @@ public class AttractionDetailsActivity extends BaseActivity {
     private MapFragment mMapSnapshot;
     private Attraction mAttraction;
 
-    public static void launch(Context context) {
+    public static void launch(Context context, Attraction attraction) {
+        checkNotNull(attraction);
+        EventBus.getDefault().postSticky(new AttractionEvent(attraction));
         context.startActivity(new Intent(context, AttractionDetailsActivity.class));
     }
 

@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 
 import com.travazar.tour.packages.data.model.Attraction;
 import com.travazar.tour.packages.dummy.Dummy;
+import com.travazar.tour.packages.ui.attraction.details.AttractionDetailsActivity;
+import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
 import com.travazar.tour.packages.ui.views.list.base.ListViewLayout;
 
 import java.util.List;
@@ -39,5 +41,11 @@ public class AttractionListLayout extends ListViewLayout {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new BaseRecyclerViewAdapater.OnItemClickListener<Attraction>() {
+            @Override
+            public void onItemClick(Attraction data) {
+                AttractionDetailsActivity.launch(getContext(), data);
+            }
+        });
     }
 }

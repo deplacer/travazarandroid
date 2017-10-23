@@ -59,6 +59,7 @@ public class AttractionListFragment extends BaseFragment implements
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setNestedScrollingEnabled(false);
     }
 
     @Override

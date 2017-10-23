@@ -36,6 +36,7 @@ public class AttractionListAdapter extends BaseRecyclerViewAdapater<Attraction, 
     @Override
     public void onBindViewHolder(TopAttractionHolder holder, int position) {
         Attraction attraction = mDataList.get(position);
+        holder.data = attraction;
         holder.onItemClickListener = mOnItemClickListener;
         holder.title.setText(attraction.name());
         GlideApp.with(holder.itemView)
