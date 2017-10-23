@@ -84,6 +84,19 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
+            closeNavigationDrawer();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void closeNavigationDrawer() {
+        mDrawerLayout.closeDrawer(Gravity.START);
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_item_tour_packages:
@@ -103,7 +116,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             case R.id.navigation_item_about:
                 break;
         }
-        mDrawerLayout.closeDrawer(Gravity.START);
+        closeNavigationDrawer();
         return false;
     }
 
@@ -146,7 +159,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void toggleDrawer() {
         if (mDrawerLayout.isDrawerOpen(Gravity.START)) {
-            mDrawerLayout.closeDrawer(Gravity.START);
+            closeNavigationDrawer();
         } else {
             mDrawerLayout.openDrawer(Gravity.START);
         }
