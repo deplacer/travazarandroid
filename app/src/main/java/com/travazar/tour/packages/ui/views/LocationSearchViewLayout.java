@@ -32,10 +32,20 @@ public class LocationSearchViewLayout extends SearchViewLayout {
         showSearchClearIcon(true);
         setCollapsedHint(getContext().getString(R.string.hint_select_location));
         setExpandedHint(getContext().getString(R.string.hint_search_location));
-        setCollapsedIcon(R.drawable.ic_burger);
         setSearchClearIcon(R.drawable.ic_location);
+        showBurgerIcon();
     }
 
+    public void showBackIcon() {
+        setCollapsedIcon(R.drawable.ic_arrow_back);
+    }
+
+    public void showBurgerIcon() {
+        setCollapsedIcon(R.drawable.ic_burger);
+    }
+    public void showSearchIcon(){
+        setCollapsedIcon(R.drawable.ic_search);
+    }
     public void setActivity(FragmentActivity activity) {
         setExpandedContentSupportFragment(activity, mLocationListFragment);
     }

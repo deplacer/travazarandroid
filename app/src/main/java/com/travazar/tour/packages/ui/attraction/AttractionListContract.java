@@ -21,5 +21,7 @@ public interface AttractionListContract {
     interface Presenter extends BasePresenter{
 
         void openAttractionDetails(Context context, Attraction attraction);
+
+        void detectCurrentLocation();
     }
 }

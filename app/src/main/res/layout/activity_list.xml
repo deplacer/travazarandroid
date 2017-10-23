@@ -10,7 +10,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <include layout="@layout/view_toolbar" />
+    <include layout="@layout/view_toolbar_location_search" />
 
     <FrameLayout
         android:id="@+id/content"

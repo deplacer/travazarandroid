@@ -34,4 +34,9 @@ public class AttractionListPresenter implements AttractionListContract.Presenter
         checkNotNull(attraction);
         AttractionDetailsActivity.launch(context, attraction);
     }
+
+    @Override
+    public void detectCurrentLocation() {
+
+    }
 }

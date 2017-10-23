@@ -8,11 +8,12 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.view.View;
 
 import com.travazar.tour.packages.R;
-import com.travazar.tour.packages.ui.attraction.AttractionListFragment;
 import com.travazar.tour.packages.ui.views.ListOptionView;
+import com.travazar.tour.packages.ui.views.LocationSearchViewLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import xyz.sahildave.widget.SearchViewLayout;
 
 /**
  * Created by Joseph Mangmang on 10/23/2017.
@@ -23,10 +24,26 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
     private static final String TAG_MAP = "map_tag";
     @BindView(R.id.list_option_view)
     protected ListOptionView mListOptionView;
+    @BindView(R.id.search_view_container)
+    LocationSearchViewLayout mSearchViewLayout;
+
     protected BottomSheetBehavior<ListOptionView> mBottomSheet;
     protected ListFrag mListFragment;
     protected MapFrag mMapFragment;
 
+
+    private SearchViewLayout.OnToggleAnimationListener mSearchViewToggleListener
+            = new SearchViewLayout.OnToggleAnimationListener() {
+        @Override
+        public void onStart(boolean expanding) {
+            mListOptionView.setVisibility(expanding ? View.GONE : View.VISIBLE);
+        }
+
+        @Override
+        public void onFinish(boolean expanded) {
+
+        }
+    };
     private View.OnClickListener mFilterButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -72,6 +89,7 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
         mListOptionView.setFilterButtonClickListener(mFilterButtonClickListener);
         mListOptionView.setSortButtonClickListener(mFilterButtonClickListener);
         mListOptionView.setMapButtonClickListener(mMapButtonClickListener);
+        setupSearchViewLayout();
     }
 
     @Override
@@ -80,6 +98,27 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
             super.onBackPressed();
         }
         return true;
+    }
+
+    protected abstract ListFrag getListFragment();
+
+    protected abstract MapFrag getMapFragment();
+
+    private void setupSearchViewLayout() {
+        mSearchViewLayout.setActivity(this);
+        mSearchViewLayout.handleToolbarAnimation(getToolbar());
+        mSearchViewLayout.setOnToggleAnimationListener(mSearchViewToggleListener);
+        mSearchViewLayout.showSearchIcon();
+        mSearchViewLayout.setSearchClearOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                detectCurrentLocation();
+            }
+        });
+    }
+
+    private void detectCurrentLocation() {
+        // TODO: 10/23/2017 detect current location
     }
 
     private void switchFragment() {
@@ -98,9 +137,5 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
             getFragmentManager().popBackStackImmediate();
         }
     }
-
-    protected abstract ListFrag getListFragment();
-
-    protected abstract MapFrag getMapFragment();
 
 }
