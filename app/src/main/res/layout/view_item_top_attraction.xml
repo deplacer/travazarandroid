@@ -9,14 +9,14 @@
     android:layout_marginRight="@dimen/margin_small">
 
     <ImageView
-        android:id="@+id/image_thumbnail"
+        android:id="@+id/image_attraction_thumbnail"
         android:layout_width="250dp"
         android:layout_height="100dp"
         android:scaleType="center"
         tools:src="@drawable/dummy_image_preview" />
 
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/text_attraction_title"
         android:layout_gravity="bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -56,15 +56,15 @@ public class AttractionAdapter extends BaseRecyclerViewAdapater<Attraction, Attr
     }
 
     class AttractionHolder extends BaseViewHolder<Attraction> {
-        @BindView(R.id.text_title)
+        @BindView(R.id.text_attraction_title)
         TextView title;
-        @BindView(R.id.image_thumbnail)
+        @BindView(R.id.image_attraction_thumbnail)
         ImageView thumbnail;
-        @BindView(R.id.text_address)
+        @BindView(R.id.text_attraction_address)
         TextView address;
-        @BindView(R.id.rating_bar)
+        @BindView(R.id.attraction_rating_bar)
         RatingBar ratingBar;
-        @BindView(R.id.text_total_reviews)
+        @BindView(R.id.text_attraction_total_reviews)
         TextView totalReviews;
 
         public AttractionHolder(View itemView) {

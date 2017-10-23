@@ -29,7 +29,7 @@ import static com.bumptech.glide.util.Preconditions.checkNotNull;
 public class AttractionListFragment extends BaseFragment implements
         BaseRecyclerViewAdapater.OnItemClickListener<Attraction>, AttractionListContract.View {
     public static final String TAG = AttractionListFragment.class.getSimpleName();
-    @BindView(R.id.recycler_view)
+    @BindView(R.id.attraction_recycler_view)
     RecyclerView mRecyclerView;
     private AttractionAdapter mAdapter;
     private AttractionListContract.Presenter mPresenter;
@@ -56,7 +56,6 @@ public class AttractionListFragment extends BaseFragment implements
 
     private void prepreRecyclerView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);

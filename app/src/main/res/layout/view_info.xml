@@ -16,7 +16,7 @@
         android:padding="@dimen/margin_medium">
 
         <TextView
-            android:id="@+id/text_title"
+            android:id="@+id/text_info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/grey_800"
@@ -25,7 +25,7 @@
             tools:text="Title" />
 
         <TextView
-            android:id="@+id/text_body"
+            android:id="@+id/text_info_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_medium"
@@ -35,7 +35,7 @@
             tools:text="@string/dummy_long_text" />
 
         <Button
-            android:id="@+id/button_show_more"
+            android:id="@+id/button_info_show_more"
             style="@style/AppTheme.Button.Colored.Bordered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

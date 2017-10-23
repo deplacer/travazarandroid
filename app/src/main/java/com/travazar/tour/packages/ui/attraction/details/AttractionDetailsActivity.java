@@ -46,13 +46,13 @@ public class AttractionDetailsActivity extends BaseActivity {
     ImageSlider mImageSlider;
     @BindView(R.id.text_attraction_name)
     TextView mTitle;
-    @BindView(R.id.rating_bar)
+    @BindView(R.id.rating_bar_attraction)
     RatingBar mRatingBar;
-    @BindView(R.id.text_total_reviews)
+    @BindView(R.id.text_attraction_total_reviews)
     TextView mTotalReview;
-    @BindView(R.id.text_address)
+    @BindView(R.id.text_attraction_address)
     TextView mAddress;
-    @BindView(R.id.info_overview)
+    @BindView(R.id.attraction_info_overview)
     InfoView mOverview;
 
     private MapFragment mMapSnapshot;
@@ -68,7 +68,7 @@ public class AttractionDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_attraction_details);
         ButterKnife.bind(this);
         showBackButton(true);
-        mMapSnapshot = (MapFragment) getFragmentManager().findFragmentById(R.id.map_snapshot);
+        mMapSnapshot = (MapFragment) getFragmentManager().findFragmentById(R.id.attraction_map_snapshot);
         checkNotNull(mMapSnapshot);
     }
 

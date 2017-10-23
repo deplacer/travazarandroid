@@ -8,6 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <include layout="@layout/view_toolbar_image_slider" />
@@ -37,7 +38,7 @@
                     tools:text="Attraction Title" />
 
                 <android.support.v7.widget.AppCompatRatingBar
-                    android:id="@+id/rating_bar"
+                    android:id="@+id/rating_bar_attraction"
                     style="@style/Widget.AppCompat.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -45,7 +46,7 @@
                     tools:rating="4" />
 
                 <TextView
-                    android:id="@+id/text_total_reviews"
+                    android:id="@+id/text_attraction_total_reviews"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_tiny"
@@ -53,7 +54,7 @@
                     tools:text="2,040 reviews" />
 
                 <fragment
-                    android:id="@+id/map_snapshot"
+                    android:id="@+id/attraction_map_snapshot"
                     class="com.google.android.gms.maps.MapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/map_snapshot_height"
@@ -61,7 +62,7 @@
                     app:liteMode="true" />
 
                 <TextView
-                    android:id="@+id/text_address"
+                    android:id="@+id/text_attraction_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_small"
@@ -73,11 +74,17 @@
             </LinearLayout>
 
             <com.travazar.tour.packages.ui.views.InfoView
-                android:id="@+id/info_overview"
+                android:id="@+id/attraction_info_overview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
                 app:title="@string/title_overview" />
+
+            <com.travazar.tour.packages.ui.views.list.toppackage.TourPackageListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:title="@string/title_tour_packages" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

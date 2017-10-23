@@ -50,7 +50,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     class CategoryHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.text_title)
+        @BindView(R.id.text_category_title)
         TextView title;
 
         public CategoryHolder(View itemView) {

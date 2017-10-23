@@ -17,32 +17,25 @@ import java.util.List;
  * Created by kali_root on 10/13/2017.
  */
 
-public class TopAttractionLayout extends ListViewLayout {
+public class AttractionListLayout extends ListViewLayout {
     private List<Attraction> mAttractions;
     private TopAttractionAdapter mAdapter;
 
-    public TopAttractionLayout(Context context) {
+    public AttractionListLayout(Context context) {
         super(context);
     }
 
-    public TopAttractionLayout(Context context, @Nullable AttributeSet attrs) {
+    public AttractionListLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public TopAttractionLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public AttractionListLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
     protected void onPrepareRecyclerView() {
-        setTitle(R.string.title_top_attractions);
         mAttractions = Dummy.getTopAttractions();
-        if (isInEditMode()) {
-            mAttractions.add(null);
-            mAttractions.add(null);
-            mAttractions.add(null);
-            mAttractions.add(null);
-        }
         mAdapter = new TopAttractionAdapter(mAttractions);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);

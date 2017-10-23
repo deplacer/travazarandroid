@@ -23,12 +23,12 @@ import butterknife.OnClick;
  */
 
 public class InfoView extends CardView {
-    @BindView(R.id.text_title)
+    @BindView(R.id.text_info_title)
     TextView mTitle;
-    @BindView(R.id.text_body)
+    @BindView(R.id.text_info_body)
     TextView mBody;
 
-    @OnClick(R.id.button_show_more)
+    @OnClick(R.id.button_info_show_more)
     void onShowMoreClick(View view) {
         view.setVisibility(GONE);
         mBody.setMaxLines(Integer.MAX_VALUE);

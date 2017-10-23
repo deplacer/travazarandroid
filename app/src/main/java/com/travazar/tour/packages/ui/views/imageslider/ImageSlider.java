@@ -59,9 +59,9 @@ public class ImageSlider extends RelativeLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.view_image_slider, this);
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        titleText = (TextView) findViewById(R.id.text_title);
-        textIndicator = (TextView) findViewById(R.id.text_indicator_right_top);
+        viewPager = (ViewPager) findViewById(R.id.slider_view_pager);
+        titleText = (TextView) findViewById(R.id.text_slider_title);
+        textIndicator = (TextView) findViewById(R.id.text_slider_indicator_right_top);
         circleIndicator = (CircleIndicator) findViewById(R.id.indicator);
 
         adapter = new SliderAdapter(context);

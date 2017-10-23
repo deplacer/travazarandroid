@@ -46,9 +46,9 @@ public class TopAttractionAdapter extends BaseRecyclerViewAdapater<Attraction, T
     }
 
     class TopAttractionHolder extends BaseViewHolder<Attraction> {
-        @BindView(R.id.text_title)
+        @BindView(R.id.text_attraction_title)
         TextView title;
-        @BindView(R.id.image_thumbnail)
+        @BindView(R.id.image_attraction_thumbnail)
         ImageView thumbnail;
 
         public TopAttractionHolder(View itemView) {

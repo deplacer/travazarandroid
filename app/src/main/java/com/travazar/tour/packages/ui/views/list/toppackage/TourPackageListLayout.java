@@ -1,6 +1,7 @@
 package com.travazar.tour.packages.ui.views.list.toppackage;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
@@ -16,25 +17,24 @@ import java.util.List;
  * Created by kali_root on 10/12/2017.
  */
 
-public class TopTourPackageLayout extends ListViewLayout {
+public class TourPackageListLayout extends ListViewLayout {
     List<TourPackage> mTourPackages;
     private TopTourPackageAdapter mAdapter;
 
-    public TopTourPackageLayout(Context context) {
+    public TourPackageListLayout(Context context) {
         super(context);
     }
 
-    public TopTourPackageLayout(Context context, @Nullable AttributeSet attrs) {
+    public TourPackageListLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public TopTourPackageLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TourPackageListLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
     protected void onPrepareRecyclerView() {
-        setTitle(R.string.title_top_packages);
         mTourPackages = new ArrayList<>();
         if (true || isInEditMode()) {
             mTourPackages.add(null);

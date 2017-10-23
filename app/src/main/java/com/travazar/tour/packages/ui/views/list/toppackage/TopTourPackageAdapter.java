@@ -49,19 +49,19 @@ public class TopTourPackageAdapter extends BaseRecyclerViewAdapater<TourPackage,
     }
 
     class TopTourPackageHolder extends BaseViewHolder<TourPackage> {
-        @BindView(R.id.text_title)
+        @BindView(R.id.text_package_title)
         TextView title;
-        @BindView(R.id.image_thumbnail)
+        @BindView(R.id.image_package_thumbnail)
         ImageView thumbnail;
-        @BindView(R.id.rating_bar)
+        @BindView(R.id.package_rating_bar)
         RatingBar ratingBar;
-        @BindView(R.id.text_rating)
+        @BindView(R.id.text_package_rating)
         TextView rating;
-        @BindView(R.id.text_total_reviews)
+        @BindView(R.id.text_package_total_reviews)
         TextView totalReviews;
-        @BindView(R.id.text_short_description)
+        @BindView(R.id.text_package_short_description)
         TextView shortDescription;
-        @BindView(R.id.text_price)
+        @BindView(R.id.text_package_price)
         TextView price;
         @BindView(R.id.button_book)
         Button book;
