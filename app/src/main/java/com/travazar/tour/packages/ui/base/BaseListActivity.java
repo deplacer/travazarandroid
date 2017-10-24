@@ -108,6 +108,7 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
     protected abstract MapFrag getMapFragment();
 
     private void setupSearchViewLayout() {
+        mSearchViewLayout.setCollapsedHint("Bohol, Philippines");
         mSearchViewLayout.setActivity(this);
         mSearchViewLayout.handleToolbarAnimation(getToolbar());
         mSearchViewLayout.setOnToggleAnimationListener(mSearchViewToggleListener);

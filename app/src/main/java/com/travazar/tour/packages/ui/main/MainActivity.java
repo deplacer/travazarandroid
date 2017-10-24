@@ -121,6 +121,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     private void setupSearchViewLayout() {
+        mSearchViewLayout.setCollapsedHint("Bohol, Philippines");
         mSearchViewLayout.setActivity(this);
         mSearchViewLayout.handleToolbarAnimation(getToolbar());
         mSearchViewLayout.setOnToggleAnimationListener(mSearchViewToggleListener);
