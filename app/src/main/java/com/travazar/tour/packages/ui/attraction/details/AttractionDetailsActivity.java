@@ -21,14 +21,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Attraction;
 import com.travazar.tour.packages.data.model.Slider;
-import com.travazar.tour.packages.ui.attraction.event.AttractionEvent;
 import com.travazar.tour.packages.ui.base.BaseActivity;
 import com.travazar.tour.packages.ui.views.InfoView;
 import com.travazar.tour.packages.ui.views.imageslider.ImageSlider;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +38,7 @@ import static com.bumptech.glide.util.Preconditions.checkNotNull;
  */
 
 public class AttractionDetailsActivity extends BaseActivity {
+    public static final String EXTRA_ATTRACTION = "com.travazar.tour.packages.EXTRA_ATTRACTION";
     @BindView(R.id.image_slider)
     ImageSlider mImageSlider;
     @BindView(R.id.text_attraction_name)
@@ -61,8 +57,9 @@ public class AttractionDetailsActivity extends BaseActivity {
 
     public static void launch(Context context, Attraction attraction) {
         checkNotNull(attraction);
-        EventBus.getDefault().postSticky(new AttractionEvent(attraction));
-        context.startActivity(new Intent(context, AttractionDetailsActivity.class));
+        Intent intent = new Intent(context, AttractionDetailsActivity.class);
+        intent.putExtra(EXTRA_ATTRACTION, attraction);
+        context.startActivity(intent);
     }
 
     @Override
@@ -73,19 +70,11 @@ public class AttractionDetailsActivity extends BaseActivity {
         showBackButton(true);
         mMapSnapshot = (MapFragment) getFragmentManager().findFragmentById(R.id.attraction_map_snapshot);
         checkNotNull(mMapSnapshot);
+
+        mAttraction = getAttractionFromIntent();
+        showAttractionDetails();
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
-    }
-
-    @Override
-    protected void onStop() {
-        EventBus.getDefault().unregister(this);
-        super.onStop();
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -93,14 +82,12 @@ public class AttractionDetailsActivity extends BaseActivity {
         return true;
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
-    public void onAttractionEvent(AttractionEvent attractionEvent) {
-        EventBus.getDefault().removeStickyEvent(attractionEvent);
-        mAttraction = checkNotNull(attractionEvent.attraction);
-        showAttractionDetails();
+    private Attraction getAttractionFromIntent() {
+        return getIntent().getParcelableExtra(EXTRA_ATTRACTION);
     }
 
     private void showAttractionDetails() {
+        if (mAttraction == null) return;
         List<Slider> sliders = new ArrayList<>();
         sliders.add(Slider.builder()
                 .imageUrl(mAttraction.imageUrl())
