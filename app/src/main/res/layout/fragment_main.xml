@@ -16,6 +16,7 @@
             android:layout_height="@dimen/image_slider_height" />
 
         <com.travazar.tour.packages.ui.views.list.category.CategoryListViewLayout
+            android:id="@+id/category_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:showMoreButton="false" />

@@ -1,34 +1,30 @@
 package com.travazar.tour.packages.ui.views.list.category;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.travazar.tour.packages.R;
+import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
+import com.travazar.tour.packages.ui.base.BaseViewHolder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.travazar.tour.packages.ui.views.list.category.Category.*;
 
 /**
  * Created by kali_root on 10/12/2017.
  */
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryHolder> {
+public class CategoryAdapter extends BaseRecyclerViewAdapater<Category, CategoryAdapter.CategoryHolder> {
 
-    private String[] titles = {
-            "Nature & Wildlife",
-            "Adventure and Travel",
-            "Heritage & Cultural",
-            "Immersion & Community Based"
-    };
-
-    private int[] icons = {
-            R.drawable.ic_nature_wildlife,
-            R.drawable.ic_adventure_travel,
-            R.drawable.ic_heritage_cultural,
-            R.drawable.ic_immersion_community_based,
+    private Category[] categories = {
+            NatureAndWildlife,
+            AdventureAndTravel,
+            HeritageAndCultural,
+            ImmersionAndCommunityBased
     };
 
 
@@ -40,8 +36,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(CategoryHolder holder, int position) {
-        holder.title.setText(titles[position]);
-        holder.title.setCompoundDrawablesWithIntrinsicBounds(0, icons[position], 0, 0);
+        holder.onItemClickListener = mOnItemClickListener;
+        holder.setData(categories[position]);
     }
 
     @Override
@@ -49,13 +45,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return 4;
     }
 
-    class CategoryHolder extends RecyclerView.ViewHolder {
+    class CategoryHolder extends BaseViewHolder<Category> {
         @BindView(R.id.text_category_title)
         TextView title;
 
         public CategoryHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        public void setData(Category category) {
+            data = category;
+            title.setText(category.getName());
+            title.setCompoundDrawablesWithIntrinsicBounds(0, category.getIcon(), 0, 0);
         }
     }
 }

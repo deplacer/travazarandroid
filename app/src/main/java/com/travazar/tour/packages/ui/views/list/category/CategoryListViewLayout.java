@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.util.AttributeSet;
 
 import com.travazar.tour.packages.R;
+import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
 import com.travazar.tour.packages.ui.views.list.base.ListViewLayout;
 
 /**
@@ -13,6 +14,7 @@ import com.travazar.tour.packages.ui.views.list.base.ListViewLayout;
  */
 
 public class CategoryListViewLayout extends ListViewLayout {
+    private CategoryAdapter adapter;
 
     public CategoryListViewLayout(Context context) {
         super(context);
@@ -29,9 +31,14 @@ public class CategoryListViewLayout extends ListViewLayout {
     @Override
     protected void onPrepareRecyclerView() {
         setTitle(R.string.title_category);
+        adapter = new CategoryAdapter();
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(new CategoryAdapter());
+        mRecyclerView.setAdapter(adapter);
+    }
+
+    public void setOnItemClickListener(BaseRecyclerViewAdapater.OnItemClickListener itemClickListener) {
+        adapter.setOnItemClickListener(itemClickListener);
     }
 }
