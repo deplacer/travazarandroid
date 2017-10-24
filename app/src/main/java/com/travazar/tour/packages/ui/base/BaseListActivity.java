@@ -37,6 +37,9 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
         @Override
         public void onStart(boolean expanding) {
             mListOptionView.setVisibility(expanding ? View.GONE : View.VISIBLE);
+            if (expanding && !mapButtonVisible) {
+                switchFragment();
+            }
         }
 
         @Override
