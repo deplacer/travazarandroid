@@ -29,8 +29,6 @@ import butterknife.ButterKnife;
 public class AttractionAdapter extends BaseRecyclerViewAdapater<Attraction, AttractionAdapter.AttractionHolder> {
 
     public AttractionAdapter() {
-        // TODO: 10/17/2017 remove dummy attraction
-        mDataList = Dummy.getTopAttractions();
     }
 
     @Override

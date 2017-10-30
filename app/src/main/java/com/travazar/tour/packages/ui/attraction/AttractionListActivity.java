@@ -27,7 +27,7 @@ public class AttractionListActivity extends BaseListActivity<AttractionListFragm
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        new AttractionListPresenter(mListFragment);
+        new AttractionListPresenter(mListFragment, mMapFragment);
     }
 
     @Override

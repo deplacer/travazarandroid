@@ -97,10 +97,14 @@ public abstract class BaseListActivity<ListFrag extends Fragment, MapFrag extend
 
     @Override
     public boolean onSupportNavigateUp() {
-        if (!getFragmentManager().popBackStackImmediate()) {
-            super.onBackPressed();
-        }
+        onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 
     protected abstract ListFrag getListFragment();

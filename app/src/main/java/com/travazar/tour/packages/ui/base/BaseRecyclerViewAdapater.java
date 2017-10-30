@@ -22,9 +22,11 @@ public abstract class BaseRecyclerViewAdapater<DataType, VH extends RecyclerView
     public interface OnItemClickListener<DataType> {
         void onItemClick(DataType data);
     }
-    public BaseRecyclerViewAdapater(){
+
+    public BaseRecyclerViewAdapater() {
         mDataList = new ArrayList<>();
     }
+
     @Override
     public int getItemCount() {
         return mDataList.size();
@@ -33,8 +35,24 @@ public abstract class BaseRecyclerViewAdapater<DataType, VH extends RecyclerView
     public void setOnItemClickListener(OnItemClickListener itemClickListener) {
         mOnItemClickListener = itemClickListener;
     }
-    public void setDataList(List<DataType> dataList){
+
+    public void setDataList(List<DataType> dataList) {
         mDataList = dataList;
         notifyDataSetChanged();
     }
+
+    public void addDataList(List<DataType> dataList) {
+    }
+
+    public DataType getItem(int position) {
+        if (position >= mDataList.size()) {
+            return null;
+        }
+        return mDataList.get(position);
+    }
+
+    public List<DataType> getDataList() {
+        return mDataList;
+    }
+
 }

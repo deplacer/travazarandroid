@@ -13,8 +13,11 @@ import com.travazar.tour.packages.data.model.Attraction;
 import com.travazar.tour.packages.ui.base.BaseFragment;
 import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import static com.bumptech.glide.util.Preconditions.checkNotNull;
 
 /**
@@ -28,6 +31,7 @@ public class AttractionListFragment extends BaseFragment implements
     RecyclerView mRecyclerView;
     private AttractionAdapter mAdapter;
     private AttractionListContract.Presenter mPresenter;
+    private int offset = 0;
 
     public static AttractionListFragment newInstance() {
         return new AttractionListFragment();
@@ -46,6 +50,7 @@ public class AttractionListFragment extends BaseFragment implements
         View view = inflater.inflate(R.layout.fragment_attraction_list, container, false);
         ButterKnife.bind(this, view);
         prepreRecyclerView();
+        mPresenter.requestAttractions(offset);
         return view;
     }
 
@@ -67,4 +72,22 @@ public class AttractionListFragment extends BaseFragment implements
         mPresenter = checkNotNull(presenter);
     }
 
+    @Override
+    public Attraction getAttractionFromList(int position) {
+        return mAdapter.getItem(position);
+    }
+
+    @Override
+    public void showAttractions(List<Attraction> attractions, boolean reset) {
+        if (reset) {
+            mAdapter.setDataList(attractions);
+        } else {
+            mAdapter.addDataList(attractions);
+        }
+    }
+
+    @Override
+    public List<Attraction> getLoadedAttractions() {
+        return mAdapter.getDataList();
+    }
 }
