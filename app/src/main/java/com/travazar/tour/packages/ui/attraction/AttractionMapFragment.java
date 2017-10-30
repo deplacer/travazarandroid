@@ -201,9 +201,7 @@ public class AttractionMapFragment extends BaseFragment implements OnMapReadyCal
                 margin + outerMargin,
                 thumbnailWidth - (margin + outerMargin),
                 thumbnailHeight - (margin + outerMargin)), 0, 0, paint);
-        if (source != output) {
-            source.recycle(); // TODO: 10/28/2017 fixed this illigalstate
-        }
+
         return output;
     }
 }
