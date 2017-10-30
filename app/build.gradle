@@ -28,7 +28,7 @@ repositories {
 dependencies {
     final PLAY_SERVICE_VERSION = '11.4.2'
     final SUPPORT_LIBRARY_VERSION = '25.3.1';
-    final AUTO_VALUE_VERSION = '1.5'
+    final AUTO_VALUE_VERSION = '1.5.1'
     final AUTO_VALUE_GSON_VERSION = '0.6.0'
     final RETROFIT_VERSION = '2.3.0';
     final GLIDE_VERSION = '4.1.1'
@@ -52,11 +52,11 @@ dependencies {
 
     // Replace provided dependency below with official AutoValue once this issue is fixed
     // https://github.com/google/auto/issues/268
-    provided "com.jakewharton.auto.value:auto-value-annotations:$AUTO_VALUE_VERSION"
-    provided "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
+    compileOnly "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
     annotationProcessor "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
-    annotationProcessor 'com.ryanharter.auto.value:auto-value-parcel:0.2.5'
+    compileOnly "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
     annotationProcessor "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
+    annotationProcessor 'com.ryanharter.auto.value:auto-value-parcel:0.2.5'
     //annotationProcessor 'com.squareup:javapoet:1.7.0'
     // https://github.com/rharter/auto-value-parcel/issues/64
     compile 'com.google.code.gson:gson:2.8.0'

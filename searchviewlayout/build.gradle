@@ -5,7 +5,7 @@ def mLibraryVersion = 0.6
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 15
