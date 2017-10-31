@@ -62,11 +62,15 @@ dependencies {
     // https://github.com/rharter/auto-value-parcel/issues/64
     compile 'com.google.code.gson:gson:2.8.0'
     compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
-    compile "com.google.code.gson:gson:$RETROFIT_VERSION"
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile "com.google.code.gson:gson:2.8.2"
     compile project(':searchviewlayout')
     compile "com.google.android.gms:play-services-maps:$PLAY_SERVICE_VERSION"
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.5'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    compile 'com.google.dagger:dagger:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    implementation 'com.jakewharton.timber:timber:4.6.0'
 }
