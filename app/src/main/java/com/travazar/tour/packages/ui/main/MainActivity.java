@@ -17,6 +17,8 @@ import com.travazar.tour.packages.ui.base.BaseActivity;
 import com.travazar.tour.packages.ui.tourpackage.TourPackageListActivity;
 import com.travazar.tour.packages.ui.views.LocationSearchViewLayout;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import xyz.sahildave.widget.SearchViewLayout;
@@ -31,6 +33,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     LocationSearchViewLayout mSearchViewLayout;
     @BindView(R.id.navigation_bottom)
     BottomNavigationView mBottomNavigationView;
+    @Inject
     private MainPresenter mMainPresenter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

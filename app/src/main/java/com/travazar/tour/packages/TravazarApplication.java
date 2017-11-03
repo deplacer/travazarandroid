@@ -4,14 +4,12 @@ import android.app.Application;
 import android.os.StrictMode;
 
 import com.squareup.leakcanary.LeakCanary;
-import com.travazar.tour.packages.data.DataManager;
 
 /**
  * Created by kali_root on 10/11/2017.
  */
 
 public class TravazarApplication extends Application {
-    private DataManager dataManager;
 
     @Override
     public void onCreate() {
@@ -33,10 +31,6 @@ public class TravazarApplication extends Application {
             return;
         }
         LeakCanary.install(this);
-        dataManager = new DataManager();
     }
 
-    public DataManager getDataManager() {
-        return dataManager;
-    }
 }
