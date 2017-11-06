@@ -38,4 +38,10 @@ public class TourPackageDetailsActivity extends BaseActivity {
     private TourPackage getTourPackageFromIntent() {
         return getIntent().getParcelableExtra(EXTRA_TOUR_PACKAGE);
     }
+
+    @Override
+    public boolean onNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

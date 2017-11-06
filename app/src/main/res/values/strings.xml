@@ -25,6 +25,12 @@
     <string name="action_show_more">Show more</string>
     <string name="title_overview">Overview</string>
     <string name="action_more">More</string>
+    <string name="dummy_tour_package_title">Affordable Bohol Countryside Whole Day Tour + Buffet Lunch</string>
+    <string name="dummy_tour_operator">Asian Travel</string>
+    <string name="title_destination">Destination</string>
+    <string name="title_information">Information</string>
+    <string name="title_inclusions">Inclusions</string>
+    <string name="title_exclusions">Exclusions</string>
     <plurals name="message_number_of_person">
         <item quantity="one">/ %d person</item>
         <item quantity="many">/ %d persons</item>

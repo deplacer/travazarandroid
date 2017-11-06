@@ -1,6 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <include layout="@layout/view_toolbar_image_slider" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium"
+        app:fabSize="normal"
+        app:layout_anchor="@+id/collapsing_toolbar_layout"
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@drawable/ic_unfavorite" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_tour_package_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:maxLines="2"
+                    android:textSize="@dimen/headline"
+                    tools:text="@string/dummy_tour_package_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/text_tour_operator"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:layout_weight="1"
+                        android:maxLines="3"
+                        android:textSize="@dimen/title"
+                        tools:text="@string/dummy_tour_operator" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:id="@+id/text_tour_package_price"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:textSize="@dimen/display_2"
+                        tools:text="2,500" />
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatRatingBar
+                    android:id="@+id/rating"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    tools:rating="4.5" />
+
+                <include layout="@layout/view_layout_divider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginStart="@dimen/margin_medium"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/subheading"
+                        android:textStyle="bold"
+                        tools:text="8.1 Excellent" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:background="@color/grey_200" />
+
+                    <TextView
+                        android:id="@+id/text_total_reviews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_medium"
+                        android:layout_marginRight="@dimen/margin_medium"
+                        android:textSize="@dimen/subheading"
+                        tools:text="2,405 reviews" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.travazar.tour.packages.ui.views.list.attraction.AttractionListLayout
+                android:id="@+id/list_layout_desctination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                app:showMoreButton="false"
+                app:title="@string/title_destination" />
+
+            <com.travazar.tour.packages.ui.views.InfoView
+                android:id="@+id/info_view_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                app:title="@string/title_information" />
+
+            <com.travazar.tour.packages.ui.views.InfoView
+                android:id="@+id/info_view_overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                app:title="@string/title_overview" />
+
+            <com.travazar.tour.packages.ui.views.InfoView
+                android:id="@+id/info_view_inclusions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                app:title="@string/title_inclusions" />
+
+            <com.travazar.tour.packages.ui.views.InfoView
+                android:id="@+id/info_view_exclusions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                app:title="@string/title_exclusions" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

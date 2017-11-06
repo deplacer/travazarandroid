@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.travazar.tour.packages.GlideApp;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Attraction;
-import com.travazar.tour.packages.dummy.Dummy;
 import com.travazar.tour.packages.ui.base.BaseRecyclerViewAdapater;
 import com.travazar.tour.packages.ui.base.BaseViewHolder;
 
