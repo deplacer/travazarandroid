@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TravazarAndroid.iml" filepath="$PROJECT_DIR$/TravazarAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/searchviewlayout/searchviewlayout.iml" filepath="$PROJECT_DIR$/searchviewlayout/searchviewlayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/travazarandroid.iml" filepath="$PROJECT_DIR$/travazarandroid.iml" />
     </modules>
   </component>
 </project>

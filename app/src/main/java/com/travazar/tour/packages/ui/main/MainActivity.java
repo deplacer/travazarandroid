@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     LocationSearchViewLayout mSearchViewLayout;
     @BindView(R.id.navigation_bottom)
     BottomNavigationView mBottomNavigationView;
-    @Inject
+
     private MainPresenter mMainPresenter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
