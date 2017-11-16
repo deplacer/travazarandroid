@@ -8,6 +8,7 @@ package com.travazar.tour.packages.ui.views;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.widget.CardView;
+import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
@@ -67,6 +68,10 @@ public class InfoView extends CardView {
     }
 
     public void setBody(String body) {
+        mBody.setText(body);
+    }
+
+    public void setBody(Spanned body) {
         mBody.setText(body);
     }
 }

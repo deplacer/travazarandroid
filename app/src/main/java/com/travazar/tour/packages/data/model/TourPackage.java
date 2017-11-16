@@ -16,6 +16,8 @@ public abstract class TourPackage implements Parcelable {
 
     public abstract int tourOperatorId();
 
+    public abstract String tourOperatorName();
+
     public abstract String title();
 
     public abstract String tourCode();
@@ -113,6 +115,8 @@ public abstract class TourPackage implements Parcelable {
         public abstract Builder rating(double rating);
 
         public abstract Builder totalReviews(String totalReviews);
+
+        public abstract Builder tourOperatorName(String tourOperatorName);
 
         public abstract TourPackage build();
     }

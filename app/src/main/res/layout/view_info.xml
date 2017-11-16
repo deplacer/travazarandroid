@@ -30,8 +30,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
+            android:breakStrategy="high_quality"
+            android:elegantTextHeight="true"
             android:ellipsize="marquee"
             android:maxLines="5"
+            android:textSize="@dimen/subheading"
             tools:text="@string/dummy_long_text" />
 
         <Button

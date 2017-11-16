@@ -31,6 +31,7 @@
     <string name="title_information">Information</string>
     <string name="title_inclusions">Inclusions</string>
     <string name="title_exclusions">Exclusions</string>
+    <string name="title_term_conditions">Term and Conditions</string>
     <plurals name="message_number_of_person">
         <item quantity="one">/ %d person</item>
         <item quantity="many">/ %d persons</item>
@@ -45,5 +46,10 @@
         <font size="3">%1$s %2$s</font>/ per %3$d persons</h4>
         ]]>
         </item>
+    </plurals>
+    <plurals name="person_range">
+        <item quantity="one">%d person</item>
+        <item quantity="many">%d persons</item>
+        <item quantity="other">%d persons</item>
     </plurals>
 </resources>

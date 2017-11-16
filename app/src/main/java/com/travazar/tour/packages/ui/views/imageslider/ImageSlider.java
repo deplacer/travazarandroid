@@ -1,7 +1,6 @@
 package com.travazar.tour.packages.ui.views.imageslider;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 import com.travazar.tour.packages.R;
 import com.travazar.tour.packages.data.model.Slider;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -19,10 +19,25 @@ public class ImageSlider extends RelativeLayout {
     private static final String TAG = ImageSlider.class.getSimpleName();
     private TextView titleText;
     private TextView textIndicator;
-    private ViewPager viewPager;
-    private SliderAdapter adapter;
+    private WeakReference<ViewPager> viewPagerWeakReference;
+    private WeakReference<SliderAdapter> adapterWeakReference;
     private CircleIndicator circleIndicator;
-    private Handler autoNextHandler = new Handler();
+
+    private boolean autoNext;
+    private final Runnable mAutoNextRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (autoNext) {
+                int currentItem = viewPagerWeakReference.get().getCurrentItem();
+                int nextItem = currentItem + 1;
+                if (currentItem >= (adapterWeakReference.get().getCount() - 1)) {
+                    nextItem = 0;
+                }
+                viewPagerWeakReference.get().setCurrentItem(nextItem, true);
+            }
+            runAutoNext();
+        }
+    };
 
     private ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
         @Override
@@ -32,8 +47,8 @@ public class ImageSlider extends RelativeLayout {
 
         @Override
         public void onPageSelected(int position) {
-            titleText.setText(adapter.getPageTitle(position));
-            textIndicator.setText(position + 1 + "/" + adapter.getCount());
+            titleText.setText(adapterWeakReference.get().getPageTitle(position));
+            textIndicator.setText(position + 1 + "/" + adapterWeakReference.get().getCount());
         }
 
         @Override
@@ -41,7 +56,6 @@ public class ImageSlider extends RelativeLayout {
 
         }
     };
-    private boolean autoNext;
 
     public ImageSlider(Context context) {
         super(context);
@@ -60,24 +74,29 @@ public class ImageSlider extends RelativeLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.view_image_slider, this);
-        viewPager = (ViewPager) findViewById(R.id.slider_view_pager);
+        viewPagerWeakReference = new WeakReference<>((ViewPager) findViewById(R.id.slider_view_pager));
         titleText = (TextView) findViewById(R.id.text_slider_title);
         textIndicator = (TextView) findViewById(R.id.text_slider_indicator_right_top);
         circleIndicator = (CircleIndicator) findViewById(R.id.indicator);
 
-        adapter = new SliderAdapter(context);
+        adapterWeakReference = new WeakReference<>(new SliderAdapter(context));
 
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(onPageChangeListener);
+        viewPagerWeakReference.get().setAdapter(adapterWeakReference.get());
+        viewPagerWeakReference.get().addOnPageChangeListener(onPageChangeListener);
         //circleIndicator.setViewPager(viewPager);
         runAutoNext();
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        removeCallbacks(mAutoNextRunnable);
+    }
 
     public void setDataList(List<Slider> imageUrls) {
-        adapter.setSliders(imageUrls);
-        circleIndicator.setViewPager(viewPager);
-        onPageChangeListener.onPageSelected(viewPager.getCurrentItem());
+        adapterWeakReference.get().setSliders(imageUrls);
+        circleIndicator.setViewPager(viewPagerWeakReference.get());
+        onPageChangeListener.onPageSelected(viewPagerWeakReference.get().getCurrentItem());
     }
 
     public void showCircleIndicator(boolean show) {
@@ -98,19 +117,6 @@ public class ImageSlider extends RelativeLayout {
     }
 
     private void runAutoNext() {
-        autoNextHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (autoNext) {
-                    int currentItem = viewPager.getCurrentItem();
-                    int nextItem = currentItem + 1;
-                    if (currentItem >= (adapter.getCount() - 1)) {
-                        nextItem = 0;
-                    }
-                    viewPager.setCurrentItem(nextItem, true);
-                }
-                runAutoNext();
-            }
-        }, 5000);
+        postDelayed(mAutoNextRunnable, 5000);
     }
 }

@@ -21,6 +21,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_huge"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -64,16 +65,36 @@
                         android:textSize="@dimen/title"
                         tools:text="@string/dummy_tour_operator" />
 
+
                     <TextView
+                        android:id="@+id/text_tour_package_price_currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="@dimen/margin_tiny"
+                        android:textSize="@dimen/subheading"
+                        android:textStyle="bold"
+                        tools:text="P" />
+
+                    <TextView
+                        android:id="@+id/text_tour_package_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:id="@+id/text_tour_package_price"
-                        android:layout_marginEnd="@dimen/margin_medium"
                         android:layout_marginRight="@dimen/margin_medium"
-                        android:textSize="@dimen/display_2"
-                        tools:text="2,500" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/display_1"
+                        tools:text="2,500.00" />
+
                 </LinearLayout>
+
+
+                <ExpandableListView
+                    android:id="@+id/expandable_price_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_tiny"
+                    android:nestedScrollingEnabled="true" />
 
                 <android.support.v7.widget.AppCompatRatingBar
                     android:id="@+id/rating"
@@ -123,7 +144,7 @@
             </LinearLayout>
 
             <com.travazar.tour.packages.ui.views.list.attraction.AttractionListLayout
-                android:id="@+id/list_layout_desctination"
+                android:id="@+id/list_layout_dectination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_medium"
@@ -165,7 +186,27 @@
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginRight="@dimen/margin_medium"
                 app:title="@string/title_exclusions" />
+
+            <com.travazar.tour.packages.ui.views.InfoView
+                android:id="@+id/info_view_term_conditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                app:title="@string/title_term_conditions" />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:background="@color/colorAccent"
+        android:text="@string/action_book_now"
+        android:textColor="@color/grey_50" />
 </android.support.design.widget.CoordinatorLayout>
