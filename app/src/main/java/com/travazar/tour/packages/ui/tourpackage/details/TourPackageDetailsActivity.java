@@ -146,12 +146,6 @@ public class TourPackageDetailsActivity extends BaseActivity {
         return getIntent().getParcelableExtra(EXTRA_TOUR_PACKAGE);
     }
 
-    @Override
-    public boolean onNavigateUp() {
-        onBackPressed();
-        return true;
-    }
-
     private void setListViewHeight(ExpandableListView listView,
                                    int group) {
         ExpandableListAdapter listAdapter = listView.getExpandableListAdapter();

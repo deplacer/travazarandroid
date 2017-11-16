@@ -86,16 +86,42 @@ public class Dummy {
         return destinations;
     }
 
+    public static TourPackage getTourPackage() {
+        return TourPackage.builder()
+                .tourPackageId(1)
+                .tourOperatorId(1)
+                .coverImageUrl("https://d1sttufwfa12ee.cloudfront.net/uploads/deal/thumb/6878.jpg")
+                .tourOperatorName("Bohol Travel & Tours")
+                .title("Affordable Bohol Countryside Whole Day Tour")
+                .additionalInfo("The Schutzstaffel (SS; also stylized as Runic \"ᛋᛋ\" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally \"Protection Squadron\") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. ")
+                .available(true)
+                .shortDescription("The Schutzstaffel (SS; also stylized as Runic \"ᛋᛋ\" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally \"Protection Squadron\") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. ")
+                .description("The Schutzstaffel (SS; also stylized as Runic \"ᛋᛋ\" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally \"Protection Squadron\") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. ")
+                .location("Carmen, Bohol, Philippines")
+                .priceOptions(getPriceOptions())
+                .destinations(getDestinations())
+                .rating(4.5)
+                .tourCode("23d3FDdf")
+                .totalReviews("451 Reviews")
+                .departurePoint("Tagbilaran Plaza")
+                .departureTime("8 AM")
+                .returnTime("5 PM")
+                .duration("8 Hours")
+                .build();
+    }
+
     public static List<TourPackage> getTourPackages() {
         List<TourPackage> tourPackages = new ArrayList<>();
         TourPackage tourPackage = TourPackage.builder()
                 .tourPackageId(1)
                 .tourOperatorId(1)
+                .coverImageUrl("https://d1sttufwfa12ee.cloudfront.net/uploads/deal/thumb/6878.jpg")
                 .tourOperatorName("Bohol Travel & Tours")
                 .title("Affordable Bohol Countryside Whole Day Tour")
                 .additionalInfo("The Schutzstaffel (SS; also stylized as Runic \"ᛋᛋ\" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally \"Protection Squadron\") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. ")
                 .available(true)
                 .description("The Schutzstaffel (SS; also stylized as Runic \"ᛋᛋ\" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally \"Protection Squadron\") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. ")
+                .shortDescription("The Schutzstaffel (SS; also stylized as Runic \"ᛋᛋ\" with Armanen runes; German pronunciation: [ˈʃʊtsˌʃtafl̩] (About this sound listen); literally \"Protection Squadron\") was a major paramilitary organization under Adolf Hitler and the Nazi Party (NSDAP) in Nazi Germany, and later throughout German-occupied Europe during World War II. It began with a small guard unit known as the Saal-Schutz (Hall-Protection) made up of NSDAP volunteers to provide security for party meetings in Munich. In 1925, Heinrich Himmler joined the unit, which had by then been reformed and given its final name. ")
                 .location("Carmen, Bohol, Philippines")
                 .priceOptions(getPriceOptions())
                 .destinations(getDestinations())

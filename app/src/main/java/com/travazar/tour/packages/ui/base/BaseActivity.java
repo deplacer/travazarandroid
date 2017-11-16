@@ -37,6 +37,18 @@ public class BaseActivity extends AppCompatActivity {
         reloadToolbar();
     }
 
+    @Override
+    public boolean onNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     private void reloadToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar == null) {
