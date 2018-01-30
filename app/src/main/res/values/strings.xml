@@ -32,6 +32,7 @@
     <string name="title_inclusions">Inclusions</string>
     <string name="title_exclusions">Exclusions</string>
     <string name="title_term_conditions">Term and Conditions</string>
+    <string name="app_mantra">Tour package market place</string>
     <plurals name="message_number_of_person">
         <item quantity="one">/ %d person</item>
         <item quantity="many">/ %d persons</item>
