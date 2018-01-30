@@ -41,6 +41,14 @@
             android:textSize="@dimen/subheading"
             tools:layout_editor_absoluteX="188dp"
             tools:layout_editor_absoluteY="325dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Alpha Version"
+            android:textColor="@color/amber_50"
+            android:textStyle="italic" />
     </LinearLayout>
 
 </ScrollView>
