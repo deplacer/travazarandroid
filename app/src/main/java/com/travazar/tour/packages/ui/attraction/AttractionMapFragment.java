@@ -50,6 +50,7 @@ import com.travazar.tour.packages.ui.attraction.details.AttractionDetailsActivit
 import com.travazar.tour.packages.ui.base.BaseFragment;
 import com.travazar.tour.packages.ui.views.AttractionView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -126,7 +127,7 @@ public class AttractionMapFragment extends BaseFragment implements OnMapReadyCal
         mGoogleMap = googleMap;
         if (mGoogleMap != null) {
             mGoogleMap.setOnMarkerClickListener(mMarkerClickListener);
-            List<Attraction> attractions = mPresenter.getLoadedAttractions();
+            List<Attraction> attractions = mPresenter != null ? mPresenter.getLoadedAttractions() : new ArrayList<Attraction>();
             for (Attraction attraction : attractions) {
                 addItem(attraction);
             }
