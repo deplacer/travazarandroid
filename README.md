@@ -7,3 +7,5 @@ Lazada for tour packages. People can find, view, locate and book tour package di
 <br><br>
 <img src="https://github.com/deplacer/travazarandroid/blob/master/screenshots/device-2018-01-30-161221.png" width="250" height="430" />
 <img src="https://github.com/deplacer/travazarandroid/blob/master/screenshots/device-2018-01-30-161305.png" width="250" height="430" />
+<img src="https://github.com/deplacer/travazarandroid/blob/master/screenshots/Screenshot_20180204-165731.png" width="250" height="430" />
+<img src="https://github.com/deplacer/travazarandroid/blob/master/screenshots/Screenshot_20180204-165744.png" width="250" height="430" />
